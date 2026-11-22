@@ -46,6 +46,113 @@
         #binding-cells = <0>;
         bindings = <&bt BT_SEL 1>, <&to 4>;
     };
+
+    /* Windows-mode symbol translation (JIS output on a US-layout PC). Shift selects the 2nd binding. */
+    wm_2: wm_2 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_2";
+        #binding-cells = <0>;
+        bindings = <&kp N2>, <&kp DQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_6: wm_6 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_6";
+        #binding-cells = <0>;
+        bindings = <&kp N6>, <&kp AMPS>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_7: wm_7 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_7";
+        #binding-cells = <0>;
+        bindings = <&kp N7>, <&kp SQT>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_8: wm_8 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_8";
+        #binding-cells = <0>;
+        bindings = <&kp N8>, <&kp LPAR>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_9: wm_9 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_9";
+        #binding-cells = <0>;
+        bindings = <&kp N9>, <&kp RPAR>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_0: wm_0 {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_0";
+        #binding-cells = <0>;
+        bindings = <&kp N0>, <&kp N0>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_colon: wm_colon {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_COLON";
+        #binding-cells = <0>;
+        bindings = <&kp COLON>, <&kp ASTRK>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_at: wm_at {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_AT";
+        #binding-cells = <0>;
+        bindings = <&kp AT>, <&kp GRAVE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_lbkt: wm_lbkt {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_LBKT";
+        #binding-cells = <0>;
+        bindings = <&kp LBKT>, <&kp LBRC>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_semi: wm_semi {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_SEMI";
+        #binding-cells = <0>;
+        bindings = <&kp SEMI>, <&kp PLUS>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_minus: wm_minus {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_MINUS";
+        #binding-cells = <0>;
+        bindings = <&kp MINUS>, <&kp EQUAL>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_rbkt: wm_rbkt {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_RBKT";
+        #binding-cells = <0>;
+        bindings = <&kp RBKT>, <&kp RBRC>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_eq: wm_eq {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_EQ";
+        #binding-cells = <0>;
+        bindings = <&kp EQUAL>, <&kp EQUAL>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_yen: wm_yen {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_YEN";
+        #binding-cells = <0>;
+        bindings = <&kp BSLH>, <&kp PIPE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    wm_caret: wm_caret {
+        compatible = "zmk,behavior-mod-morph";
+        label = "WM_CARET";
+        #binding-cells = <0>;
+        bindings = <&kp CARET>, <&kp TILDE>;
+        mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
   };
 
     keymap {
@@ -92,14 +199,36 @@
             >;
         };
 
-        /* Windows layer (index 4): activated by &win_mode. Only the three Command (GUI) keys become Ctrl. */
+        /* Windows layer (index 4): activated by &win_mode. Command keys -> Ctrl, Option -> right Alt, JIS symbols translated for a US-layout PC, Fn/Mod redirected to layers 5/6, kp disabled. */
         layer_windows {
             bindings = <
-  &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans &trans
-  &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans &trans
-  &trans &trans &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans &trans &trans &trans
-  &trans &trans &trans &trans &trans &trans &trans    &kp RCTRL &trans &trans &trans &trans &trans &trans
-  &trans &trans &trans &trans &kp LCTRL &trans &trans &trans    &trans &trans &trans &kp RCTRL &trans &trans &trans &trans
+  &trans &trans &wm_2 &trans &trans &trans &none    &mo 6 &wm_6 &wm_7 &wm_8 &wm_9 &wm_0 &wm_colon
+  &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans &wm_at
+  &trans &trans &trans &trans &trans &trans &trans &wm_lbkt &kp RALT    &trans &trans &trans &trans &trans &trans &trans &wm_semi &wm_minus
+  &trans &trans &trans &trans &trans &trans &wm_rbkt    &kp RCTRL &trans &trans &trans &trans &trans &trans
+  &mo 5 &wm_eq &wm_yen &kp RALT &kp LCTRL &trans &trans &wm_caret    &trans &trans &trans &kp RCTRL &trans &trans &trans &trans
+            >;
+        };
+
+        /* Windows-mode Fn (index 5): copy of layer_fn; kp disabled, Mod -> layer 6 */
+        layer_win_fn {
+            bindings = <
+ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6            &none                                                    &mo 6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+ &trans  &trans  &trans  &trans  &trans  &trans             &none                                                   &none  &trans  &trans  &trans   &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans  &trans             &none  &trans  &trans                  &trans  &trans   &none  &trans  &trans  &trans   &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans  &trans                            &trans                  &trans                  &trans  &trans  &trans   &trans   &trans   &trans
+ &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans                  &trans  &trans  &trans          &trans  &trans   &trans   &trans   &trans
+            >;
+        };
+
+        /* Windows-mode Mod (index 6): exact copy of layer_mod */
+        layer_win_mod {
+            bindings = <
+  &none  &mac_mode     &win_mode     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                  &none                                                                          &trans   &none       &none       &none   &none   &none   &none
+  &none         &none         &none         &none         &none         &none            &bootloader                                                                     &bootloader   &none       &none       &none   &none   &none   &none
+  &none         &none         &none         &none         &none         &none                  &none   &none   &none                  &bt BT_CLR       &none  &rgb_ug RGB_MEFS_CMD 5   &none       &none       &none   &none   &none   &none
+  &none         &none         &none         &none    &macro_ver         &none                                  &none                       &none                                       &none       &none       &none   &none   &none   &none
+  &none         &none         &none         &none         &none                                &none   &none   &none                       &none  &bl BL_TOG         &rgb_ug RGB_TOG          &bl BL_INC  &bl BL_DEC   &none   &none   &none
             >;
         };
 
