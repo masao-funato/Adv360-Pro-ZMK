@@ -132,13 +132,6 @@
         bindings = <&kp RBKT>, <&kp RBRC>;
         mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    wm_eq: wm_eq {
-        compatible = "zmk,behavior-mod-morph";
-        label = "WM_EQ";
-        #binding-cells = <0>;
-        bindings = <&kp EQUAL>, <&kp EQUAL>;
-        mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
     wm_yen: wm_yen {
         compatible = "zmk,behavior-mod-morph";
         label = "WM_YEN";
@@ -165,7 +158,7 @@
    &kp TAB           &kp Q                &kp W     &kp E     &kp R   &kp T                &none                                                                                        &none   &kp Y     &kp U      &kp I    &kp O     &kp P  &kp LEFT_BRACKET
  &kp LCTRL           &kp A                &kp S     &kp D     &kp F   &kp G                &none  &kp RIGHT_BRACKET         &kp LALT                       &kp RALT  &kp BACKSPACE      &none   &kp H     &kp J      &kp K    &kp L  &kp SEMI         &kp MINUS
  &kp LSHFT           &kp Z                &kp X     &kp C     &kp V   &kp B                                          &kp NON_US_HASH                       &kp RGUI                             &kp N     &kp M  &kp COMMA  &kp DOT  &kp FSLH   &kp RIGHT_SHIFT
-     &mo 2  &kp UNDERSCORE  &kp INTERNATIONAL_3  &kp LALT  &kp LGUI                    &kp LANG2          &kp SPACE        &kp EQUAL                  &kp BACKSPACE      &kp ENTER  &kp LANG1          &kp RGUI   &kp LEFT   &kp UP  &kp DOWN         &kp RIGHT
+     &mo 2  &kp INT1        &kp INTERNATIONAL_3  &kp LALT  &kp LGUI                    &kp LANG2          &kp SPACE        &kp EQUAL                  &kp BACKSPACE      &kp ENTER  &kp LANG1          &kp RGUI   &kp LEFT   &kp UP  &kp DOWN         &kp RIGHT
             >;
         };
 
@@ -206,7 +199,7 @@
   &trans &trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans &wm_at
   &trans &trans &trans &trans &trans &trans &trans &wm_lbkt &kp RALT    &trans &trans &trans &trans &trans &trans &trans &wm_semi &wm_minus
   &trans &trans &trans &trans &trans &trans &wm_rbkt    &kp RCTRL &trans &trans &trans &trans &trans &trans
-  &mo 5 &wm_eq &wm_yen &kp RALT &kp LCTRL &trans &trans &wm_caret    &trans &trans &trans &kp RCTRL &trans &trans &trans &trans
+  &mo 5 &kp UNDERSCORE &wm_yen &kp RALT &kp LCTRL &trans &trans &wm_caret    &trans &trans &trans &kp RCTRL &trans &trans &trans &trans
             >;
         };
 
