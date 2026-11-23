@@ -40,6 +40,8 @@ jobs:
         run: west init -l config
       - name: West Update
         run: west update
+      - name: Patch layer LED colors (Windows-mode layers 4-6 look like Mac layers)
+        run: bin/patch_layer_colors.sh
       - name: West Zephyr export
         run: west zephyr-export
       - name: West Build (left)
